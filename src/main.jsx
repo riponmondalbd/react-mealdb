@@ -5,7 +5,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './components/Home/Home.jsx'
 import Meals from './components/Meals/Meals.jsx'
-import Header from './components/Header/Header.jsx'
+import MealDetails from './components/MealDetails/MealDetails.jsx'
 
 const router = createBrowserRouter([
   {
@@ -15,11 +15,21 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Meals />,
+        loader: () => fetch('https://www.themealdb.com/api/json/v1/1/search.php?s'),
       },
       {
-        path: '/meal',
-        element: <div>Meal</div>
-      }
+        path: 'meal/:mealId',
+        element: <MealDetails />,
+        loader: ({ params }) => fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.mealId}`),
+      },
+      {
+        path: 'about',
+        element: <div></div>,
+      },
+      {
+        path: 'contact',
+        element: <div></div>,
+      },
     ]
   },
 ]);
