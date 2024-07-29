@@ -1,0 +1,7 @@
+.navigation a {
+  margin-right: 15px;
+}
+
+.navigation .active {
+  color: tomato;
+}
