@@ -1,0 +1,7 @@
+.meal-container {
+  border: 2px solid tomato;
+  padding: 10px;
+}
+.meal-container img {
+  width: 100%;
+}
